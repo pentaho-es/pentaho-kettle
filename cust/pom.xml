@@ -1,0 +1,103 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+    <parent>
+      <groupId>org.pentaho.di</groupId>
+      <artifactId>pdi</artifactId>
+      <version>9.3.0.5-754</version>
+    </parent>
+    
+    <groupId>org.pentaho.di.css.cust</groupId>
+	<artifactId>PDI-19886</artifactId>
+    <version>9.3.0.5-754-CSS-CUST-PDI-19886</version>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
+	<dependencies>
+		<dependency>
+            <groupId>pentaho-kettle</groupId>
+            <artifactId>kettle-engine</artifactId>
+            <version>${project.version}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>${project.version}</finalName>
+		<plugins>
+			<!-- shade in the es licenses -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>3.1.0</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+						<configuration>
+							<createDependencyReducedPom>false</createDependencyReducedPom>
+							<artifactSet>
+								<includes>
+									<include>pentaho-kettle:kettle-engine</include>
+								</includes>
+							</artifactSet>
+							<filters>
+                                <filter>
+									<artifact>pentaho-kettle:kettle-engine</artifact>
+									<includes>
+                                        <include>org/pentaho/di/trans/steps/excelwriter/ExcelWriterStep.class</include>
+                                        <include>org/pentaho/di/trans/steps/excelwriter/ExcelWriterStepData.class</include>
+                                        <include>org/pentaho/di/trans/steps/excelwriter/ExcelWriterStepMeta.class</include>
+									</includes>
+								</filter>
+							</filters>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+            <plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.8</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<configuration>
+							<target>
+                                <unjar src="${project.build.directory}/${project.build.finalName}.jar" dest="${project.build.directory}/filteredClasses" />
+                                <delete dir="${project.build.directory}/filteredClasses/META-INF" />
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+            <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<descriptor>assembly/assembly.xml</descriptor>
+					<appendAssemblyId>false</appendAssemblyId>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
