@@ -11,7 +11,7 @@
   </parent>
 
   <artifactId>excel</artifactId>
-  <version>9.5.0.0-240</version>
+  <version>9.5.0.0-240-CSS-CUST-PDI-19805</version>
   <packaging>pom</packaging>
 
   <name>PDI Excel Plugins</name>
@@ -43,7 +43,7 @@
       <dependency>
         <groupId>pentaho-kettle</groupId>
         <artifactId>kettle-engine</artifactId>
-        <version>${pdi.version}</version>
+        <version>9.5.0.0-240-CSS-CUST-PDI-19805</version>
         <scope>provided</scope>
       </dependency>
       <dependency>

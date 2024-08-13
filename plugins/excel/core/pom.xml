@@ -7,7 +7,7 @@
   <parent>
     <groupId>org.pentaho.di.plugins</groupId>
     <artifactId>excel</artifactId>
-    <version>9.5.0.0-240</version>
+    <version>9.5.0.0-240-CSS-CUST-PDI-19805</version>
   </parent>
 
   <artifactId>excel-plugins-core</artifactId>
@@ -37,7 +37,7 @@
     <dependency>
       <groupId>pentaho</groupId>
       <artifactId>pentaho-metaverse-api</artifactId>
-      <version>${project.version}</version>
+      <version>9.5.0.0-240</version>
       <scope>provided</scope>
     </dependency>
     <dependency>

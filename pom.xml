@@ -278,15 +278,16 @@
         </property>
       </activation>
       <modules>
-        <module>engine-ext</module>
-        <module>core</module>
+	<!-- module>engine-ext</module>
+        <module>core</module -->
         <module>engine</module>
-        <module>dbdialog</module>
+		<module>cust</module>
+        <!-- module>dbdialog</module>
         <module>ui</module>
-        <module>utilities</module>
+        <module>utilities</module -->
       </modules>
     </profile>
-
+    
     <profile>
       <id>plugins</id>
       <activation>
@@ -298,7 +299,7 @@
         <module>plugins</module>
       </modules>
     </profile>
-
+    <!--
     <profile>
       <id>assemblies</id>
       <activation>
@@ -311,7 +312,8 @@
       </modules>
     </profile>
 
-    <profile>
+    -->
+    <!--profile>
       <id>osgi</id>
 
       <activation>
@@ -327,8 +329,6 @@
             <artifactId>maven-clean-plugin</artifactId>
             <executions>
               <execution>
-                <!-- override clean and don't delete the zips in target, this helps hadoop-addon and makes the pipeline cleaner
-                     if you really need a full cleaning run clean without activating this profile -->
                 <id>default-clean</id>
                 <configuration>
                   <excludeDefaultDirectories>true</excludeDefaultDirectories>
@@ -349,7 +349,7 @@
         </plugins>
       </build>
       
-    </profile>
+    </profile -->
 
   </profiles>
 

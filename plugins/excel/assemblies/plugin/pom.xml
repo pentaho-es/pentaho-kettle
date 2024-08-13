@@ -7,11 +7,11 @@
   <parent>
     <groupId>org.pentaho.di.plugins</groupId>
     <artifactId>excel-assemblies</artifactId>
-    <version>9.5.0.0-240</version>
+    <version>9.5.0.0-240-CSS-CUST-PDI-19805</version>
   </parent>
 
   <artifactId>excel-plugins</artifactId>
-  <version>9.5.0.0-240</version>
+  <version>9.5.0.0-240-CSS-CUST-PDI-19805</version>
   <packaging>pom</packaging>
 
   <name>PDI Excel Plugins Distribution</name>

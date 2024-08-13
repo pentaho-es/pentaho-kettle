@@ -23,7 +23,7 @@
   </properties>
 
   <profiles>
-    <profile>
+    <!--profile>
       <id>lowdeps</id>
       <activation>
         <property>
@@ -46,7 +46,7 @@
         <module>mondrianinput</module>
         <module>avro-format</module>
       </modules>
-    </profile>
+    </profile -->
 
     <profile>
       <id>highdeps</id>
@@ -56,7 +56,7 @@
         </property>
       </activation>
       <modules>
-        <module>core</module>
+        <!-- module>core</module>
         <module>core-ui</module>
         <module>file-open-save-new</module>
         <module>connections</module>
@@ -88,9 +88,9 @@
         <module>streaming</module>
         <module>metastore-locator</module>
         <module>repository-locator</module>
-        <module>ldap</module>
+        <module>ldap</module -->
         <module>excel</module>
-        <module>pentaho-reporting</module>
+        <!-- module>pentaho-reporting</module -->
       </modules>
     </profile>
 
